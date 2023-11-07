@@ -4,8 +4,6 @@ import RecipeCreate from "./RecipeCreate";
 import RecipeList from "./RecipeList";
 import RecipeData from "./RecipeData"
 
-// Adding comment to test git
-
 function App() {
   const [recipes, setRecipes] = useState([...RecipeData]);
 
