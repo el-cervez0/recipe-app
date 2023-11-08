@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 
 function RecipeCreate({ createRecipe }) {
-  // Initial object data representing the recipe form
+
+  // TODO: When the form is submitted, a new recipe should be created, and the form contents cleared.
+  // TODO: Add the required input and textarea form elements.
+  // TODO: Add the required submit and change handlers
   const initialRecipeData = {
     name: "",
     cuisine: "",
@@ -10,10 +13,8 @@ function RecipeCreate({ createRecipe }) {
     preparation: "",
   }
   
-  // set the initial state to the blank object
   const [recipe, setRecipe] = useState({ ...initialRecipeData });
   
-  // Update state object when the form is updated
   const handleChange = (event) => {
     const { name, value } = event.target; 
     setRecipe({
@@ -22,7 +23,6 @@ function RecipeCreate({ createRecipe }) {
       });
   }
 
-  // Call createRecipe to add recipe object to recipe list. Set the create form back to the initial state after submission
   const handleSubmit = (event) => {
     event.preventDefault();
     createRecipe(recipe);
@@ -36,19 +36,19 @@ function RecipeCreate({ createRecipe }) {
         <tbody>
           <tr>
             <td>
-              <input id="name" name="name" type="text" value={recipe.name} onChange={handleChange} />
+              <input id="name" style={{ width: '100%' }}  name="name" type="text" placeholder={"Name"} value={recipe.name} onChange={handleChange} />
             </td>
             <td>
-              <input name="cuisine" id="cuisine" type="text" value={recipe.cuisine} onChange={handleChange} />
+              <input name="cuisine" id="cuisine" type="text" placeholder={"Cuisine"} value={recipe.cuisine} onChange={handleChange} />
             </td>
             <td>
-              <input name="photo" id="photo" type="text" value={recipe.photo} onChange={handleChange} />
+              <input name="photo" id="photo" type="text" placeholder={"URL"} value={recipe.photo} onChange={handleChange} />
             </td>
             <td>
-              <textarea name="ingredients" id="ingredients" value={recipe.ingredients} required={true} rows={3} onChange={handleChange} />
+              <textarea name="ingredients" id="ingredients" placeholder={"Ingredients"} value={recipe.ingredients} required={true} rows={3} onChange={handleChange} />
             </td>
             <td>
-              <textarea name="preparation" id="preparation" value={recipe.preparation} required={true} rows={3} onChange={handleChange} />
+              <textarea name="preparation" id="preparation" placeholder={"Preparation"} value={recipe.preparation} required={true} rows={3} onChange={handleChange} />
             </td>
             <td>
               <button type="submit">Create</button>
